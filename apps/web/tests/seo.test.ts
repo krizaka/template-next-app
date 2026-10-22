@@ -18,3 +18,21 @@ describe("llms.txt", () => {
     expect(await res.text()).toBe(llmsText());
   });
 });
+
+import robots from "@/app/robots";
+import { CRAWLERS, pageMetadata, siteJsonLd } from "@/lib/seo";
+
+describe("the family SEO contract", () => {
+  it("robots.txt names every welcomed crawler", () => {
+    const rules = robots().rules;
+    const agents = (Array.isArray(rules) ? rules : [rules]).map((r) => r.userAgent);
+    for (const bot of CRAWLERS) expect(agents).toContain(bot);
+  });
+  it("every page has a canonical, social cards and a JSON-LD that leads back to Krizaka", () => {
+    const meta = pageMetadata("en");
+    expect(meta.alternates?.canonical).toBe(`${SITE_URL}/en`);
+    expect(meta.openGraph?.images).toBeDefined();
+    expect(meta.twitter).toBeDefined();
+    expect(JSON.stringify(siteJsonLd("en"))).toContain("https://www.krizaka.com/#organization");
+  });
+});
