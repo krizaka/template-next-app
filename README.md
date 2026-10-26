@@ -1,5 +1,7 @@
 # template-next-app
 
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=krizaka_template-next-app&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=krizaka_template-next-app) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=krizaka_template-next-app&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=krizaka_template-next-app) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=krizaka_template-next-app&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=krizaka_template-next-app) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=krizaka_template-next-app&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=krizaka_template-next-app) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=krizaka_template-next-app&metric=coverage)](https://sonarcloud.io/summary/new_code?id=krizaka_template-next-app)
+
 The starting point of a Krizaka product site: a Next.js (App Router) pnpm/turbo monorepo with `apps/web`, wired to everything the family
 shares. **It only wires**: the pipeline, deploy tool and UI are the org's reusable workflows and `@krizaka/*` packages, so a fix there
 reaches every product without touching the template.
