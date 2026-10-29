@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { fill, init, validate } from "./init.mjs";
 
 test("fill replaces both placeholders everywhere", () => {
-  assert.equal(fill("www.__PRODUCT__.com — __Product__ / __PRODUCT__", "kachizaka", "Kachizaka"), "www.kachizaka.com — Kachizaka / kachizaka");
+  assert.equal(fill("www.__PRODUCT__.com — __Product__ / __PRODUCT__", "myproduct", "Myproduct"), "www.myproduct.com — Myproduct / myproduct");
 });
 
 test("validate refuses a bad slug or name", () => {
