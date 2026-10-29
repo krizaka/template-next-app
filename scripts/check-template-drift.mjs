@@ -9,7 +9,12 @@ export const SHARED = { "scripts/check-seo-family.mjs": "krizaka-com" };
 const RAW = (repo, f) => `https://raw.githubusercontent.com/krizaka/${repo}/main/${f}`;
 
 /** Names of the shared files whose content differs from the reference. */
-export async function drift({ read = (p) => readFileSync(p, "utf8"), fetchText, files = Object.keys(SHARED), source = (f) => f } = {}) {
+export async function drift({
+  read = (p) => readFileSync(p, "utf8"),
+  fetchText,
+  files = Object.keys(SHARED),
+  source = (f) => f,
+} = {}) {
   const out = [];
   for (const f of files) if (read(f) !== (await fetchText(f, SHARED[f]))) out.push(f);
   return out;
@@ -17,7 +22,9 @@ export async function drift({ read = (p) => readFileSync(p, "utf8"), fetchText, 
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const fetchText = async (f, repo) => {
-    const res = await fetch(RAW(repo, f), { headers: process.env.GH_TOKEN ? { Authorization: `Bearer ${process.env.GH_TOKEN}` } : {} });
+    const res = await fetch(RAW(repo, f), {
+      headers: process.env.GH_TOKEN ? { Authorization: `Bearer ${process.env.GH_TOKEN}` } : {},
+    });
     if (!res.ok) throw new Error(`${f}: ${res.status}`);
     return res.text();
   };

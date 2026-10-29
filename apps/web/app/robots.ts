@@ -8,5 +8,8 @@ export default function robots(): MetadataRoute.Robots {
   const env = readEnv();
   return env.APP_SEARCH_INDEXING === "off"
     ? { rules: { userAgent: "*", disallow: "/" } }
-    : { rules: [{ userAgent: "*", allow: "/" }, ...CRAWLERS.map((userAgent) => ({ userAgent, allow: "/" }))], sitemap: `${SITE_URL}/sitemap.xml` };
+    : {
+        rules: [{ userAgent: "*", allow: "/" }, ...CRAWLERS.map((userAgent) => ({ userAgent, allow: "/" }))],
+        sitemap: `${SITE_URL}/sitemap.xml`,
+      };
 }

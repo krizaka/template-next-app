@@ -18,10 +18,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const safe: Locale = LOCALES.includes(locale as Locale) ? (locale as Locale) : "en";
   const t = getDictionary(safe);
-  return { metadataBase: new URL(SITE_URL), ...pageMetadata(safe), title: { default: t.meta.siteName, template: t.meta.titleTemplate.replace("{title}", "%s") } };
+  return {
+    metadataBase: new URL(SITE_URL),
+    ...pageMetadata(safe),
+    title: { default: t.meta.siteName, template: t.meta.titleTemplate.replace("{title}", "%s") },
+  };
 }
 
-export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   if (!LOCALES.includes(locale as Locale)) notFound();
   return (
