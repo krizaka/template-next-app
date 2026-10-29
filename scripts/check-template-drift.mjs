@@ -4,8 +4,8 @@
 // Usage: node scripts/check-template-drift.mjs   (needs network; GH_TOKEN optional)
 import { readFileSync } from "node:fs";
 
-// file -> the repository whose main is its reference (sg-ratchet: the six product repos agree; the SEO guard: krizaka-com owns the contract)
-export const SHARED = { "scripts/sg-ratchet.mjs": "akinaza", "scripts/check-seo-family.mjs": "krizaka-com" };
+// file -> the repository whose main is its reference (the SEO guard: krizaka-com owns the contract)
+export const SHARED = { "scripts/check-seo-family.mjs": "krizaka-com" };
 const RAW = (repo, f) => `https://raw.githubusercontent.com/krizaka/${repo}/main/${f}`;
 
 /** Names of the shared files whose content differs from the reference. */
