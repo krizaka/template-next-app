@@ -11,7 +11,8 @@ export function fill(text, slug, display) {
 }
 
 export function validate(slug, display) {
-  if (!/^[a-z][a-z0-9]{1,30}$/.test(slug ?? "")) throw new Error("slug: lowercase letters and digits, starting with a letter (e.g. myproduct)");
+  if (!/^[a-z][a-z0-9]{1,30}$/.test(slug ?? ""))
+    throw new Error("slug: lowercase letters and digits, starting with a letter (e.g. myproduct)");
   if (!display || /[\n"\\]/.test(display)) throw new Error("display name: a short name without quotes");
 }
 

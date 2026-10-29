@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import { devRedirect } from "./dev-host";
 
-const go = (host: string, path: string, search = "") => devRedirect(host, path, search, "https://www.x.com", "dev.x.com");
+const go = (host: string, path: string, search = "") =>
+  devRedirect(host, path, search, "https://www.x.com", "dev.x.com");
 
 describe("the dev host", () => {
   it("sends its pages to www, path and query kept", () => {

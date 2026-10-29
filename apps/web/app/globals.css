@@ -5,5 +5,9 @@
 @import "@krizaka/fonts/css";
 @import "@krizaka/ui/tailwind.css";
 
-html { overflow-x: hidden; }
-body { background: var(--kz-surface-0); }
+html {
+  overflow-x: hidden;
+}
+body {
+  background: var(--kz-surface-0);
+}

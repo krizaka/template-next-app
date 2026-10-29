@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import { envSchema } from "../lib/env";
 
-const CONTEXTS = /^(NEXT_PUBLIC_)?(APP|DATABASE|AUTH|MEDIA|MAIL|PUSH|PAYMENTS|REALTIME|ABUSE|OBSERVABILITY|AI|OPERATOR)_/;
+const CONTEXTS =
+  /^(NEXT_PUBLIC_)?(APP|DATABASE|AUTH|MEDIA|MAIL|PUSH|PAYMENTS|REALTIME|ABUSE|OBSERVABILITY|AI|OPERATOR)_/;
 const PLATFORM = new Set(["NODE_ENV"]);
 
 describe("environment variables", () => {
